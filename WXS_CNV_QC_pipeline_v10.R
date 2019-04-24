@@ -2,6 +2,7 @@
 #######################################################################################################
 ######################################## Author: Yize Li ##############################################
 ############ Date: 12/01/2017 (Initiation); 07/26/18 (Revision); 10/05/18 (Revision) ##################
+##################################### 04/25/19 (Finalization) #########################################
 ######################## WXS CNV quality control (QC) pipeline (GATK4 output) #########################
 #######################################################################################################
 
@@ -13,20 +14,19 @@
 # 4. Check the range of mean and proportion of outliers to determine the quality of data             
 # 5. Check the consistency of bp-weighte mean value in Y chromsome with the clinical data            
 # 6. Collect the donor identifiers and corresponding paired sample identifiers                       
-# 7. Check if tumor & normal pairs are swapped or not (3 criteria: Proportion of outliers, segment mean variation, segment mean - 1)                                   
-# 8. Find the cutoff to get the highest accuracy of Sex (ROC)                                        
+# 7. Check if tumor & normal pairs are swapped or not (3 criteria: Proportion of outliers, segment mean variation, segment mean - 1)                   # 8. Find the cutoff to get the highest accuracy of Sex (ROC)                                        
 # 9. Output a QC report in the csv format                                                            
 # 10. Generate the histogram of P_outliers to show the distribution and set the cutoffs              
 # 11. Generate the histogram of Y_mean to show the distribution and set the cutoffs                  
 # 12. Generate the histogram of X_mean to show the distribution and set the cutoffs 
 
-### Description of input argument:
-## Required argument
+### Description of input arguments:
+## Required arguments
 # path_input: the pathway of the CNV files to be read in the pipeline (in any format set by the user), clinical file and sample type file
 # path_output: the pathway of saving QC report and figures
 # input_format: the format of CNV files (e.g. .cnv, .CNV); the CNV files should at least include columns Sample, Chromosome, Start, End, Segment_Mean
 
-## Optional argument
+## Optional arguments
 # mean_l_bound: the lower bound of reasonable segment means (should not be less than 0; (0, 1) is suggested, e.g. 0.5 by default)
 # mean_u_bound: the upper bound of reasonable segment means (should be larger than 1, e.g. 1.5 by default)
 # good_cutoff: the lower cutoff set to compare with the proportion of outliers (segment mean values being outside the range of lower and upper bound, e.g. 0.1 by default)
@@ -40,7 +40,7 @@
 # clinic_file, sample_type_file Y_cutoff are optional arguments for additional functions (if Y_cutoff not provided, set default)
 
 ### Description of usage:
-# Rscript --vanilla WXS_CNV_QC_pipeline_v10.R > work.log &
+# Rscript --vanilla WXS_CNV_QC_pipeline_v10.R > ./logs/work.log &
 
 ### Description of input file (header name):
 # CNV files (GATK): Sample  Chromosome  Start End Num_Probes  Segment_Mean  Segment_Call
@@ -49,8 +49,7 @@
 # Sample type file: Donor Normal Tumor (tumor and normal identifiers should match that in the CNV files)
 ##########################################################################################################################################################################
 
-#args <- commandArgs(TRUE)
-# comment out if the package has been installed previously
+# Check package installation
 list.of.packages <- c("ggplot2", "ROCR", "gplots")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
