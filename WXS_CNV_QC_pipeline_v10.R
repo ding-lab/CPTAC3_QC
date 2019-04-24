@@ -129,7 +129,7 @@ CNV_QC <- function(path_input, path_output, input_format, mean_l_bound, mean_u_b
 
         for (j in chr_exist){ # or chr_total if there is no any missing chromosome in the data
 
-          # subsetting data frame by chromosome
+          # subsetting data frame by the chromosome
           temp <- Sample_i[which(Sample_i$Chromosome == j), ]
 
           # dealing with unreasonable mean values (any values larger than 100 will be set as 100)
