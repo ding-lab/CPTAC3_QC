@@ -17,7 +17,7 @@
 # path_input, input_format, path_output are required arguments for the basic functions (if mean_l_bound, mean_u_bound, good_cutoff, bad_cutoff not provided, set default)
 # clinic_file, sample_type_file Y_cutoff are optional arguments for additional functions (if Y_cutoff not provided, set default)
 
-####################################################################################
+#####################################################################################
 # Section that needs to be set by the user (example shown as below)
 ## Required arguments (basic functions)
 path_input <- "inputs/"
