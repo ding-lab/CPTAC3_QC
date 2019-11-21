@@ -26,9 +26,4 @@ FastQC (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
 ./logs: the logs are saved in the logs folder.
 
-### Batches:
-* Y2.b1 (846 samples/files from the 92 CPTAC3 y2.b1 cases).
-* Y2.b2 (1186 samples/files from the 133 CPTAC3 y2.b2 cases).
-* Y2.b3 (3113 samples/files from the 626 CPTAC3 y2.b3 cases).
-* Y2.b4 (66 samples/files from the 29 CPTAC3 y2.b4 cases).
 
