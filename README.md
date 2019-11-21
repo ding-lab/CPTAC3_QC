@@ -1,8 +1,8 @@
-# CPTAC3 QC master pipeline
+# CPTAC3 QC pipeline
 
-This pipeline provides the comprehensive QC of CPTAC3 sequence data with multiple sections.
+This pipeline provides the QC of CPTAC3 sequence data.
 
-## Section 1: Basic BAM/FASTQ QC
+## BAM/FASTQ QC
 
 ### Tool: 
 FastQC (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
@@ -30,3 +30,4 @@ FastQC (https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 * Y2.b1 (846 samples/files from the 92 CPTAC3 y2.b1 cases).
 * Y2.b2 (1186 samples/files from the 133 CPTAC3 y2.b2 cases).
 * Y2.b3 (3113 samples/files from the 626 CPTAC3 y2.b3 cases).
+
